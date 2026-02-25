@@ -1,45 +1,61 @@
 import Saludo from "./components/saludo";
 import { useState } from "react";
 
-
 function App() {
-  const [contador, setContador]=useState(0);
-  const [nombre, setNombre]=useState("");
+  const [contador, setContador] = useState(0);
+  const [nombre, setNombre] = useState("");
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900">
-      <h1 className="text-4xl font-bold text-cyan-400 items-center jus">Tailwind en TSX 🚀
-        <p className="justify-center items-center flex text-white mt-4">Prueba 1</p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900 text-center">
+
+      {/* Título */}
+      <h1 className="text-4xl font-bold text-cyan-400">
+        Tailwind en TSX 🚀
       </h1>
-       <div>
-          <input className="px-4 py-2 mt-4 rounded text-white" 
-            value={nombre}
-            placeholder="Ingrese su nombre"
-            onChange={(e)=> setNombre(e.target.value)}          
-          />
-        </div>
-        
-    <div className="mt-8 text-blue-300">
-      <Saludo nombre="Santiago"/>
-      <h1 className="flex justify-center mt-7">Hola {nombre}</h1>
-    </div>
 
-      <div className="mt-9 flex text-blue-700 text-3xl "><h1>Contador</h1></div>
-      <div className="mt-4 flex gap-4">
-        <p className="text-white text-2xl py-6 mt-6">Valor: {contador}</p><br />
-        
+      {/* Input */}
+      <input
+        className="px-4 py-2 mt-6 rounded bg-slate-800 text-white outline-none"
+        value={nombre}
+        placeholder="Ingrese su nombre"
+        onChange={(e) => setNombre(e.target.value)}
+      />
+
+      <p className="text-white mt-4">Prueba 1</p>
+
+      {/* Saludo */}
+      <div className="mt-6 text-yellow-300">
+        <Saludo nombre="Santiago" />
+        <h2 className="mt-4 text-xl">Hola {nombre}</h2>
       </div>
-      <button className="px-5 py-2 bg-green-500 text-white rounded" 
-          onClick={()=>setContador(contador+1)}>Incrementar
 
+      {/* Contador */}
+      <div className="mt-10 text-blue-400 text-3xl">
+        <h2>Contador</h2>
+      </div>
+
+      <p className="text-white text-2xl mt-4">
+        Valor: {contador}
+      </p>
+
+      <div className="flex gap-4 mt-6">
+        <button
+          className="px-5 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
+          onClick={() => setContador(contador + 1)}
+        >
+          Incrementar
         </button>
-        <button className="px-5 py-2 bg-red-500 text-white rounded mt-6"
-          onClick={()=>setContador(contador-1)}>Restar
+
+        <button
+          className="px-5 py-2 bg-red-500 hover:bg-red-600 text-white rounded"
+          onClick={() => setContador(contador - 1)}
+        >
+          Restar
         </button>
+      </div>
+
     </div>
-
-    
-  )
+  );
 }
 
-export default App
+export default App;
