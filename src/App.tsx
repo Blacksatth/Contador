@@ -4,15 +4,24 @@ import { useState } from "react";
 
 function App() {
   const [contador, setContador]=useState(0);
+  const [nombre, setNombre]=useState("");
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900">
-      <h1 className="text-4xl font-bold text-cyan-400">Tailwind en TSX 🚀
+      <h1 className="text-4xl font-bold text-cyan-400 items-center jus">Tailwind en TSX 🚀
         <p className="justify-center items-center flex text-white mt-4">Prueba 1</p>
       </h1>
-    
-    <div className="mt-8 text-yellow-300">
+       <div>
+          <input className="px-4 py-2 mt-4 rounded text-white" 
+            value={nombre}
+            placeholder="Ingrese su nombre"
+            onChange={(e)=> setNombre(e.target.value)}          
+          />
+        </div>
+        
+    <div className="mt-8 text-blue-300">
       <Saludo nombre="Santiago"/>
+      <h1 className="flex justify-center mt-7">Hola {nombre}</h1>
     </div>
 
       <div className="mt-9 flex text-blue-700 text-3xl "><h1>Contador</h1></div>
